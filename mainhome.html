@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+:root {
+      --page-padding: 80px;
+      --max-width: 1420px;
+      --green: #9FDC99;
+      --dark-green: #084c41;
+      --muted: #FFFCF8;
+      --text: #222;
+      --card-radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "AppleSDGothicNeoSB00", "AppleSDGothicNeoR00", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--muted);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+  
+    .site-header {
+      border-bottom: 1px solid var(--muted);
+      background: var(--muted);
+      position: relative;
+      z-index: 1000; 
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      height: 64px;
+      padding: 0 20px;
+    }
+
+    .site-title {
+      position: relative;
+      z-index: 1001;     
+      display: inline;  
+      padding: 0;        
+      line-height: 64px;  
+      font-size: 18px;
+      font-weight: 700;
+      color: black;
+      text-decoration: none;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: #444444;
+      font-size: 14px;
+    }
+
+    .site-nav a:hover {
+      color: #101010;
+    }
+
+.hero-img {
+  width: 100%;
+  height: auto;
+  margin-top: 18px;
+  overflow: hidden;
+}
+
+.hero-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.intro{ text-align:center; padding:56px 0 30px; background:var(--muted); margin-bottom:24px; }
+.intro h3{ margin:0; font-size:18px; font-weight:700; }
+.intro-desc{ margin-top:12px; color:#444; font-size:13px; line-height:1.6; }
+
+
+.section{ padding:32px 0; }
+.section--pad{ padding-top:48px; padding-bottom:48px; }
+.section--light{ background:#FFFCF8; border-top:1px solid #FFFCF8; border-bottom:1px solid #FFFCF8; }
+.section--green{ background:var(--green); padding:48px 0; }
+
+
+.section-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.section-head h4{ margin:0; font-size:20px; font-weight:700; }
+.add-btn{ text-decoration:none; font-size:20px; color:#666; margin-left:8px; }
+
+
+.grid{ display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:28px; }
+.grid--center{ justify-content:center; }
+.grid--three .card{ flex: 0 0 387px; }   /* 3열 고정 너비 (시안 기준) */
+.grid--two .card{ flex: 0 0 calc(50% - 28px); } /* 2열 (카페) - 유동 */
+.grid--gap-large{ gap:36px; }
+.grid--gap-medium{ gap:24px; }
+
+
+.card{
+  background:transparent;
+  border-radius:10px;
+  overflow:visible;
+  transition: transform .28s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.card--fixed{ width:387px; }
+.card--large{ width:540px; }  
+
+
+.thumb{
+  width:100%;
+  height:315px;        
+  overflow:hidden;
+  border-radius:var(--card-radius);
+  display:block;
+  position:relative;
+}
+.card--large .thumb{ height:340px; } 
+.thumb img{
+  width:95%;
+  height:95%;
+  object-fit:cover;
+  display:block;
+  border-radius:var(--card-radius);
+  transition: transform .4s ease, box-shadow .4s ease, filter .4s ease;
+}
+
+
+.card-body{ margin-top:12px; }
+.card-body h5{ margin:4px 0 6px; font-size:16px; font-weight:700; color: #111; }
+.card-body .meta{ margin:0; font-size:13px; color:#666; line-height:1.4; }
+
+
+.section-footer{ margin-top:18px; display:flex; justify-content:flex-end; }
+.more-link{
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+  font-size:14px;
+}
+.section--green .more-link{ color:#063; }
+
+.mypick-grid{ margin-top:18px; margin-bottom:18px; }
+.rest-grid{ margin-top:18px; margin-bottom:28px; }
+.cafe-grid{ margin-top:20px; margin-bottom:20px; }
+.out-grid{ margin-top:18px; margin-bottom:40px; }
+
+h2{
+        font-family: "AppleSDGothicNeoR00";
+    }
+ 
+   h4{
+        font-family: "AppleSDGothicNeoSB00";
+        font-weight: lighter;
+    }
+
+
+</style>
+
+   <title>Savor Project : in Uiwang</title>
+</head>
+
+
+<body>
+ <div class="site-wrapper">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="mainhome.html" class="site-title">Savor Project : in Uiwang</a>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="archive.html"># Archive</a></li>
+            <li><a href="restaurant.html"># restaurant</a></li>
+            <li><a href="cafe.html"># Cafe</a></li>
+            <li><a href="pick.html"># Pick</a></li>
+            <li><a href="outui.html"># Out of Uiwang</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      
+     <section class="hero-img">
+  <img src="mainhome.png" alt="메인 배너" />
+</section>
+
+
+     
+      <section class="intro">
+        <div class="intro-inner">
+          <h3>하루를 음미하다</h3>
+          <p class="intro-desc">
+           오늘도 어김없이 찾아오는 ‘밥 시간’<br>
+      오늘은 어떤 맛으로 하루를 기록할까요?<br>
+      의왕의 작은 맛집들 속에서, 당신의 맛집을 골라보세요.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--pad">
+        <div class="section-head">
+          <h4><a href="pick.html" style="color: black; text-decoration: none;"># My Pick</a></h4>
+          <a class="add-btn" href="#">＋</a>
+        </div>
+
+        <div class="grid grid--center grid--three grid--gap-large mypick-grid">
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="chgo.jpg" alt="food1">
+            </div>
+            <div class="card-body">
+              <h2>천향짬뽕</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 11분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="xltex.png" alt="food2">
+            </div>
+            <div class="card-body">
+              <h2>엑스라지 텍사스 치킨</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 12분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="sallef.jpg" alt="food3">
+            </div>
+            <div class="card-body">
+              <h2>샐러페</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 13분</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      
+      <section class="section section--light">
+        <div class="section-head">
+          <h4><a href="pick.html" style="color: black; text-decoration: none;"># restaurant</a></h4>
+        </div>
+
+        <div class="grid grid--center grid--three grid--gap-medium rest-grid">
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="yoons.png" alt="food4">
+            </div>
+            <div class="card-body">
+              <h2>윤’s 카츠</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 7분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="ramen9.png" alt="food5">
+            </div>
+            <div class="card-body">
+              <h2>라멘구락부</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 10분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="ilzio.png" alt="food6">
+            </div>
+            <div class="card-body">
+              <h2>일지오페페</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 7분</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-footer">
+          <a class="more-link" href="restaurant.html">+ more</a>
+        </div>
+      </section>
+
+      
+      <section class="section section--green">
+        <div class="section-head">
+          <h4><a href="pick.html" style="color: black; text-decoration: none;"># Cafe</a></h4>
+        </div>
+
+        <div class="grid grid--center grid--two grid--gap-large cafe-grid">
+          <article class="card card--large">
+            <div class="thumb">
+              <img src="nammae.png" alt="food7">
+            </div>
+            <div class="card-body">
+              <h2>남매카페</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 7분</p>
+            </div>
+          </article>
+
+          <article class="card card--large">
+            <div class="thumb">
+              <img src="teraice.png" alt="food8">
+            </div>
+            <div class="card-body">
+              <h2>테라커피</h2>
+              <p class="meta">의왕 내손동 · 계원예술대학교에서 도보 7분</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-footer">
+          <a class="more-link" href="cafe.html">+ more</a>
+        </div>
+      </section>
+
+      <section class="section section--pad">
+        <div class="section-head">
+          <h4><a href="pick.html" style="color: black; text-decoration: none;"># Out of Uiwang</a></h4>
+        </div>
+
+        <div class="grid grid--center grid--three grid--gap-large out-grid">
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="aemong.png" alt="food9">
+            </div>
+            <div class="card-body">
+              <h2>애몽</h2>
+              <p class="meta">마포구 연남동 · 홍대입구역 도보 8분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="warmbae.png" alt="food10">
+            </div>
+            <div class="card-body">
+              <h2>웜비어워캔드</h2>
+              <p class="meta">서울 중구 · 을지로4가역 도보 1분</p>
+            </div>
+          </article>
+
+          <article class="card card--fixed">
+            <div class="thumb">
+              <img src="geat.png" alt="food11">
+            </div>
+            <div class="card-body">
+              <h2>갓잇</h2>
+              <p class="meta">서울 성동구 · 성수역 도보 4분</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-footer">
+          <a class="more-link" href="outui.html">+ more</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
+
+

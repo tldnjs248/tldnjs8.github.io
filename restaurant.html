@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+:root {
+      --page-padding: 80px;
+      --max-width: 1420px;
+      --green: #9FDC99;
+      --dark-green: #084c41;
+      --muted: #FFFCF8;
+      --text: #222;
+      --card-radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "AppleSDGothicNeoSB00", "AppleSDGothicNeoR00", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--muted);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--page-padding);
+    }
+
+   
+    .site-header {
+      border-bottom: 1px solid var(--muted);
+      background: #E0F4DE;
+      position: relative;
+      z-index: 1000; 
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      height: 64px;
+      padding: 0 20px;
+    }
+
+    .site-title {
+      position: relative;
+      z-index: 1001;      
+      display: inline;  
+      padding: 0;        
+      line-height: 64px;  
+      font-size: 18px;
+      font-weight: 700;
+      color: black;
+      text-decoration: none;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: #444444;
+      font-size: 14px;
+    }
+
+    .site-nav a:hover {
+      color: #101010;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 90px;
+    }
+
+  
+    .intro-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 140px;
+    }
+
+    .intro-image {
+      
+      background-color: #FFFCF8;
+      border-radius: 31px;
+      width: 480px;    
+     height: 340px;
+      overflow: hidden;
+       
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .intro-text {
+      flex: 1;
+    }
+
+    .intro-text h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .intro-text p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .rest-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 60px;
+      margin-bottom: 140px;
+    }
+
+    .rest-card {
+      background-color: #FFFCF8;
+      border-radius: 31px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .rest-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rest-card h3 {
+      margin: 15px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .rest-card p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      padding: 0 15px;
+    }
+
+    .highlight-section {
+      background-color: #9FDC99;
+      padding: 80px 10vw;
+      margin-bottom: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      color: #1e1e1e;
+      border-radius: 0;
+    }
+
+    .highlight-image {
+      flex: 1;
+      background-color: #FFFCF8;
+      border-radius: 12px;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .highlight-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .highlight-text {
+      flex: 1;
+    }
+
+    .highlight-text h2 {
+      font-size: 26px;
+      font-weight: lighter;
+      margin-bottom: 15px;
+    }
+
+    .highlight-text p {
+      line-height: 1.6;
+    }
+
+   
+    .bottom-rest-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 60px;
+       margin-bottom: 140px;
+    }
+
+    .bottom-rest-card {
+      background-color: #FFFCF8;
+      border-radius: 31px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .bottom-rest-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .bottom-rest-card h3 {
+      margin: 15px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .bottom-rest-card p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      padding: 0 15px;
+    }
+
+    h2{
+        font-family: "AppleSDGothicNeoR00";
+    }
+     h3{
+        font-family: "AppleSDGothicNeoSB00";
+        font-weight: lighter;
+    }
+
+    @media (max-width: 900px) {
+      .intro-section, .highlight-section {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="mainhome.html" class="site-title">Savor Project : in Uiwang</a>
+        <nav class="site-nav">
+          <ul>
+            <li><a href="archive.html"># Archive</a></li>
+            <li><a href="restaurant.html"># restaurant</a></li>
+            <li><a href="cafe.html"># Cafe</a></li>
+            <li><a href="pick.html"># Pick</a></li>
+            <li><a href="outui.html"># Out of Uiwang</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  <main>
+    <h1># Restaurant</h1>
+
+
+    <section class="intro-section">
+      <div class="intro-image">
+        <img src="xltex.png" alt="메인 맛집 이미지">
+      </div>
+      <div class="intro-text">
+        <h2>엑스라지 텍사스 치킨</h2>
+        <p>계원예술대학교 근처에 있던 숨겨진 맛집!<br>
+           줄서서 먹을만한 분위기와 맛! 단일메뉴도 좋지만 친구들과 즐기는 파티하 세트를 추천할게요.<br>
+           <small> 텍사스 파히타 가격: 29900원 </small></p>
+      </div>
+    </section>
+
+
+    <section class="rest-list">
+      <div class="rest-card">
+        <img src="tangwha.png" alt="마라탕">
+        <h2>탕화쿵푸 내손점</h2>
+        <p>일주일에 한번 먹어도 안 질리는 맛</p>
+      </div>
+      <div class="rest-card">
+        <img src="ilzio.png" alt="일지오">
+        <h2>일지오페페 </h2>
+        <p>친절한 서비스로 즐기는 이탈리아 맛</p>
+      </div>
+      <div class="rest-card">
+        <img src="sallef.jpg" alt="카페 이미지 3">
+        <h2>샐러페</h2>
+        <p>양 많고, 맛있고 건강한 맛</p>
+      </div>
+    </section>
+
+    <section class="highlight-section">
+      <div class="highlight-image">
+        <img src="chgo.jpg" alt="천향">
+      </div>
+      <div class="highlight-text">
+        <h2>천향짬뽕</h2>
+        <p> 고추짜장은 특히 드셔보셨으면 하는 메뉴! <br>
+           짬뽕, 볶음밥 모두 실패없는 맛집입니다.<br>
+           탕수육은 겉은 바삭하고 속은 쫀득해서 손이 멈추지 않으니 <br>
+           여유있는 날 드셔보시길 바라요.<br>
+           <small> 고추짜장 11000원 / 미니 탕수육 15000원</small></p>
+      </div> 
+    </section>
+
+    <section class="bottom-rest-list">
+      <div class="bottom-rest-card">
+        <img src="frankb.png" alt="햄버거">
+        <h2>프랭크버거 의왕내손점</h2>
+        <p>느끼하면서도 깔끔한, 햄버거 맛집</p>
+      </div>
+      <div class="bottom-rest-card">
+        <img src="ramen9.png" alt="라멘">
+        <h2>라멘구락부</h2>
+        <p>좁지만 따스한 일본라멘 맛집</p>
+      </div>
+      <div class="bottom-rest-card">
+        <img src="yoons.png" alt="카츠">
+        <h2>윤'S 카츠</h2>
+        <p>양 많고 두툼한 돈가스 맛집</p>
+      </div>
+    </section>
+
+    <section class="bottom-rest-list">
+      <div class="bottom-rest-card">
+        <img src="ilsancal.png" alt="일산">
+        <h2>일산칼국수 의왕내손점</h2>
+        <p>녹진한 국물에 쫄깃한 면, 익숙한 맛</p>
+      </div>
+      <div class="bottom-rest-card">
+        <img src="egane.jpg" alt="양꼬치">
+        <h2>이가네 양꼬치 평촌직영점</h2>
+        <p>보는 재미, 먹는 재미가 있는 양꼬치 맛집</p>
+      </div>
+      <div class="bottom-rest-card">
+        <img src="halmaesoon.png" alt="순대국">
+        <h2>손큰 할매순대국 의왕내손점</h2>
+        <p>뜨끈하고 푸짐한 순대국 맛집</p>
+      </div>
+    </section>
+    
+
+  </main>
+</body>
+</html>
